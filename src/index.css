@@ -25,7 +25,7 @@ code {
   display: flex;
   justify-content: center;
   color: white;
-
+  overflow: hidden;
 }
 
 .mainForm>h3{
@@ -40,6 +40,7 @@ code {
   background-color: #FFFFFF;
   top: 72px;
   border-radius: 8px;
+  left: 9px;
 }
 
 .messageForm{
@@ -221,12 +222,26 @@ input::placeholder {
   margin: 50px 50px;
   display: flex;
   align-items: center;
-  
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+.userMessage::after{
+  content: '';
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -40px;
+  bottom: 0;
+  background: url(../public/myMessage-icon.png) no-repeat;
+  background-size: contain;
 }
 
 .userMessage>h3{
   position: absolute;
-  color: black;
   font-weight: 400;
   font-size: 10px;
   color: rgba(0, 0, 0, 0.4);
@@ -236,7 +251,6 @@ input::placeholder {
 
 .userMessage>h4{
   position: relative;
-  color: black;
   font-weight: 400;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.4);
@@ -254,4 +268,93 @@ input::placeholder {
   color: rgba(0, 0, 0, 0.29);
   bottom: -2px;
   right: 10px;
+}
+
+
+    /* бот в чате */
+    .botMessage{
+      position: relative;
+      left: 0;
+      width: 200px;
+      min-height: 70px;
+      background-Color: #0871c2;
+      margin: 50px 50px;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      word-wrap: break-word;
+    }
+
+    .botMessage::after{
+      content: '';
+      height: 35px;
+      width: 35px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: -40px;
+      bottom: 0;
+      background: url(../public/botMessage-icon.png) no-repeat;
+      background-size: contain;
+    }
+    
+    .botMessage>h3{
+      position: absolute;
+      font-weight: 400;
+      font-size: 10px;
+      color: white;
+      left: 10px;
+      top: 0px;
+    }
+    
+    .botMessage>h4{
+      position: relative;
+      font-weight: 400;
+      font-size: 15px;
+      color: white;
+      left: 18px;
+      width: 80%;
+      padding: 20px 0;
+    }
+    
+    
+    
+    .botMessage>p{
+      position: absolute;
+      font-weight: 400;
+      font-size: 10px;
+      color: white;
+      bottom: -2px;
+      right: 10px;
+    }
+
+
+    /* проверка заполненности полей */
+
+.error{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -50px;
+  height: 45px;
+  width: 250px;
+  z-index: 1000;
+  margin: 0 auto;
+  transition: .1s linear all;
+  background-color: #e75e54;
+
+}
+
+.error>img{
+  position: absolute;
+  left: 10px;
+}
+
+.error>span{
+  position: absolute;
+  left: 60px;
+  font-size: 18px;
+  font-weight: 400;
 }
