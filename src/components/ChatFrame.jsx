@@ -26,10 +26,10 @@ const ChatFrame = () => {
             chat.scrollTop = 9999999; //автопрокрутка чата к последнему сообщению
             setTimeout( botMessage, 1000)
              } 
-             else{
+             else{              //если не заполнены все поля, то показываем баннер с ошибкой
                let error = document.querySelector('.error')
                     error.style.bottom = '20px'
-                setTimeout(function () {error.style.bottom = '-50px';
+                setTimeout(function () {error.style.bottom = '-50px';  //по истечении 2000мсек прячем за overflow у основной формы
                 }, 2000);   
                 
             }
@@ -44,6 +44,9 @@ const ChatFrame = () => {
         let bMessageName = document.createElement('h3') //добавляем теги для имени бота, сообщения и времени отправки
         let bMessageText = document.createElement('h4')   
         let bMessageTime = document.createElement('p') 
+        let bMessageReply = document.createElement('button') 
+            bMessageReply.classList.add('rplMess')
+            bMessageReply.addEventListener('click', reply)
             bMessageName.innerText = 'Чат-бот' //имя бота
             bMessageTime.innerText = time.getHours() + ':' + time.getMinutes() //получаем время часы:минуты
             bMessageText.innerText = 'Случайный ответ №' +Math.floor(Math.random(0, 999) *1000) //сообщение бота
@@ -51,6 +54,7 @@ const ChatFrame = () => {
             bMessage.prepend(bMessageName)
             bMessage.append(bMessageText)
             bMessage.append(bMessageTime)
+            bMessage.append(bMessageReply)
             chat.scrollTop = 9999999; //автопрокрутка чата к последнему сообщению
             
 
@@ -58,7 +62,13 @@ const ChatFrame = () => {
     }
 
       
+    const reply = () =>{
+        document.querySelector('.replyText').classList.toggle('hidden')
+    }
 
+    const replyClose =() =>{
+        document.querySelector('.replyText').classList.toggle('hidden')
+    }
     
 
   return (
@@ -81,7 +91,8 @@ const ChatFrame = () => {
                 <button><img src="reset-icon.png" alt="" /></button>
             </div>
             
-            <div className='replyText hidden'>    
+            <div className='replyText hidden'> 
+                <button  onClick ={replyClose} className='replyText-close'></button>   
                 <h4 className='replyTitle'>Ответ на сообщение:</h4>   
                 <p className="replyAuthor"> </p>
                 <p className="replyMessage"> </p>
@@ -96,7 +107,7 @@ const ChatFrame = () => {
             <button onClick={sendMessage} className='sendMessage'><img src="sendButton.png" alt="" /></button>
             
         </div>
-        <div className='error'><img src="error-icon.png" alt="" /><span>Проверьте все поля!</span></div>
+        <div  className='error'><img src="error-icon.png" alt="" /><span>Проверьте все поля!</span></div>
     </div>
   )
 }

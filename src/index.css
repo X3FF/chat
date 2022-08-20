@@ -149,6 +149,29 @@ input::placeholder {
   white-space: nowrap;
 }
 
+.replyText-close{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  right: 20px;
+  top: 5px;
+  border-radius: 50%;
+  background: transparent; 
+  background-image: url(../public/close-icon.png);
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  transition: .1s all linear;
+}
+
+.replyText-close:hover{
+  transform: scale(1.1);
+  
+}
+
 .hidden{
   display: none;
 }
@@ -171,6 +194,10 @@ input::placeholder {
   border: none;
   cursor: pointer;
   margin: 10px 6px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
 }
 
 .textMarkdown>button:last-of-type{
@@ -211,6 +238,8 @@ input::placeholder {
   top: 25px;
   width: 390px;
   overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
 }
     /* юзернейм в чате */
 .userMessage{
@@ -329,6 +358,21 @@ input::placeholder {
       right: 10px;
     }
 
+    .rplMess{
+      position: absolute;
+      bottom: 5px;
+      right: 30px;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      background-image: url(../public/reply-icon.png);
+      background-repeat: no-repeat;
+      transform: rotate(270deg);
+      cursor: pointer;
+    }
+
 
     /* проверка заполненности полей */
 
@@ -343,7 +387,7 @@ input::placeholder {
   z-index: 1000;
   margin: 0 auto;
   transition: .1s linear all;
-  background-color: #e75e54;
+  background-color: #ce0505;
 
 }
 
