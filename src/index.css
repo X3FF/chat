@@ -5,9 +5,203 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.mainForm{
+  position: relative;
+  height: 977px;
+  width: 436px;
+  background-color: #171C37;
+  top: 50px;
+  left: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  color: white;
+
+}
+
+.mainForm>h3{
+  position: absolute;
+  font-weight: 400;
+}
+
+.chatForm{
+  position: absolute;
+  height: 896px;
+  width: 414px;
+  background-color: #FFFFFF;
+  top: 72px;
+  border-radius: 8px;
+}
+
+.messageForm{
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  width: 390px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  bottom: 16px;
+  left: 22px;
+  
+}
+
+.messageForm-name{
+  position: relative;
+  height: 40px;
+  width: auto;
+  border-radius: 8px;
+  border: none;
+  background-color: #EEEFF3;
+  margin-bottom: 12px;
+  padding: 0 10px;
+}
+
+.messageForm-text{
+  position: relative;
+  height: 126px;
+  width: auto;
+  border-radius: 8px;
+  border: none;
+  background-color: #EEEFF3;
+  resize: none;
+  padding: 10px;
+}
+  /* placeholder centering */
+  textarea::placeholder {
+    text-align: center;
+    top: 50px;
+    font-size: 15px;
+}
+
+input::placeholder {
+  text-align: center;
+  top: 50px;
+  font-size: 15px;
+}
+
+.replyText{
+  position: relative;
+  width: auto;
+  height: 80px;
+  margin-bottom: 12px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.replyTitle{
+  position: absolute;
+  font-weight: 400;
+  font-size: 15px;
+  left: 10px;
+  top: -15px;
+}
+
+.replyTitle::after{
+  content: '';
+  position: absolute;
+  height: 40px;
+  width: 0;
+  left: 10px;
+  top: 23px;
+  border: 1px solid #999999;
+}
+.replyTitle::before{
+  content: '';
+  position: absolute;
+  height: 40px;
+  width: 0;
+  left: 15px;
+  top: 23px;
+  border: 1px solid #999999;
+}
+
+.replyAuthor{
+  position: absolute;
+  font-weight: 400;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  left: 30px;
+  top: 20px;
+}
+
+.replyMessage{
+  position: absolute;
+  font-weight: 400;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
+  left: 30px;
+  top: 32px;
+  width: 310px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+.textMarkdown{
+  display: flex;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background: #FEFFFF;
+  box-shadow: 0px 2px 6px rgba(160, 194, 203, 0.63);
+  border-radius: 8px;
+}
+
+.textMarkdown>button{
+  height: 24px;
+  width: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 10px 6px ;
+}
+
+.textMarkdown>button:last-of-type{
+  position: absolute;
+  right: 10px;
+}
+
+.sendMessage{
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(37, 142, 195, 0.3);
+  border-radius: 7.5px;
+  bottom: 6px;
+  right: 6px;
+  border: none;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .2s linear all;
+}
+
+.sendMessage:hover{
+  transform: scale(1.1);
+}
+
+.sendMessage>img{
+  height: 35px;
+
+}
+
+.chatArea{
+  position: relative;
+  min-height: 500px;
+  margin: 0 auto;
+  top: 25px;
+  width: 390px;
+  border: 1px solid rgba(255, 0, 0, 0.233);
 }
