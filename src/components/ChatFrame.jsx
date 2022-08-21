@@ -33,7 +33,7 @@ const ChatFrame = () => {
             uMessage.append(uMessageText)
             uMessage.append(uMessageTime)
             uMessage.prepend(uMessageReply)
-            uMessageText.value = '' //очищаем textarea после отправки сообщения
+            document.querySelector('.messageForm-text').value = '' //очищаем textarea после отправки сообщения
             chat.scrollTop = 9999999; //автопрокрутка чата к последнему сообщению
             setTimeout( botMessage, 1000)  //автоответ бота через 1000мсек
             
