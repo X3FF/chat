@@ -369,7 +369,8 @@ input::placeholder {
   border-radius: 8px;
   word-wrap: break-word;
   font-weight: inherit;
-
+  z-index: 10;
+  height: auto;
 }
 
 .userMessage::after{
@@ -414,6 +415,54 @@ input::placeholder {
   bottom: -2px;
   right: 10px;
   font-weight: inherit;
+}
+
+
+
+.userMessageReply{
+  position: absolute;
+  width: 160px;
+  height: 55px;
+  background: #6a0080;
+  right: -15px;
+  top: -45px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  word-wrap: break-word;
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.userMessageReply::after{
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 0;
+  left: 5px;
+  border: 1px solid white;
+}
+
+.userMessageReply>p{
+  position: absolute;
+  top: -10px;
+  font-size: 10px;
+}
+
+.userMessageReply>span{
+  position: absolute;
+  width: 80%;
+  height: 30px;
+  font-size: 12px;
+  top: 20px;
+  left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-all;
 }
 
 
