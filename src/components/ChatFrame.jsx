@@ -1,13 +1,69 @@
-import React  from 'react'
+
 
 const ChatFrame = () => {
 
     let i = 0;  //переменная для счетчика id сообщений в чате
     
- 
+
+    //форматирование текста в textarea
+   const Btext =() => {
+        let tArea = document.querySelector('.messageForm-text')
+        if (tArea.selectionStart != undefined) {
+            let startPos = tArea.selectionStart;
+            let endPos = tArea.selectionEnd;
+            let selectedText = tArea.value.substring(startPos, endPos)
+            
+        if (selectedText!=0) {
+            let messText = tArea.value.substring(0, startPos);
+            messText = tArea.value.substring(0, startPos);
+            messText+='<b>'+selectedText+'</b>'
+            messText+=tArea.value.substring(endPos);
+            tArea.textContent = messText 
+            tArea.value = messText
+            }
+        }
+   }
+
+   const Itext =() => {
+    let tArea = document.querySelector('.messageForm-text')
+        if (tArea.selectionStart != undefined) {
+            let startPos = tArea.selectionStart;    //определяем стартовую позицию выделения текста
+            let endPos = tArea.selectionEnd;        //определяем конечную позицию выделения текста
+            let selectedText = tArea.value.substring(startPos, endPos)  //получаем выделенную строку в selectedText
+            
+        if (selectedText!=0) {      //если выделено более 1 символа
+            let messText = tArea.value.substring(0, startPos); 
+            messText = tArea.value.substring(0, startPos);
+            messText+='<i>'+selectedText+'</i>'
+            messText+=tArea.value.substring(endPos);
+            tArea.textContent = messText 
+            tArea.value = messText
+            }
+        }
+   }
+
+
+    const Utext =() => {
+        let tArea = document.querySelector('.messageForm-text')
+        if (tArea.selectionStart != undefined) {
+            let startPos = tArea.selectionStart;
+            let endPos = tArea.selectionEnd;
+            let selectedText = tArea.value.substring(startPos, endPos)
+            
+        if (selectedText!=0) {
+            let messText = tArea.value.substring(0, startPos);
+            messText = tArea.value.substring(0, startPos);
+            messText+='<u>'+selectedText+'</u>'
+            messText+=tArea.value.substring(endPos);
+            tArea.textContent = messText 
+            tArea.value = messText 
+            }
+    }
+}
+    
         //сообщения пользователя
     const sendMessage = () =>{
-        
+            
             let chat = document.querySelector('.chatArea')
             let time = new Date();
             let uMessage = document.createElement('div') //создаем div-блок ответа в чате
@@ -26,7 +82,8 @@ const ChatFrame = () => {
             let uMessageTime = document.createElement('p')   
             uMessageName.innerText = document.querySelector('.messageForm-name').value //имя пользователя
             uMessageTime.innerText = time.getHours() + ':' + time.getMinutes() //получаем время часы:минуты
-            uMessageText.innerText = document.querySelector('.messageForm-text').value //сообщение пользователя
+            //uMessageText.innerText = document.querySelector('.messageForm-text').value //сообщение пользователя
+            uMessageText.innerHTML = document.querySelector('.messageForm-text').value
             if (uMessageName.innerText && uMessageText.innerText !='' ){
             chat.append(uMessage) //добавляем в поле новое сообщение
             uMessage.prepend(uMessageName)
@@ -75,7 +132,7 @@ const ChatFrame = () => {
             bMessageReply.addEventListener('click', reply)
             bMessageName.innerText = 'Чат-бот' //имя бота
             bMessageTime.innerText = time.getHours() + ':' + time.getMinutes() //получаем время часы:минуты
-            bMessageText.innerText = 'Строка №' +Math.floor(Math.random(0, 999) *1000) //сообщение бота
+            bMessageText.innerText = 'Многострочный ответ от бота №' +Math.floor(Math.random(0, 999) *1000) //сообщение бота
             chat.append(bMessage) //добавляем в поле новое сообщение
             bMessage.prepend(bMessageName)
             bMessage.append(bMessageText)
@@ -83,8 +140,6 @@ const ChatFrame = () => {
             bMessage.append(bMessageReply)
             chat.scrollTop = 9999999; //автопрокрутка чата к последнему сообщению
             
-
-
     }
 
       
@@ -96,16 +151,21 @@ const ChatFrame = () => {
             let replyMessage = document.querySelector('#'+el.id+'>h4').textContent  //текст реплая
             document.querySelector('.replyAuthor').innerText = replyAuthor  //вставляем имя для реплая
             document.querySelector('.replyMessage').innerText = replyMessage  //вставляем текст для реплая
-            return replyAuthor
-            return replyMessage
+          
+            
 
           }));
         
     }
-
+            // скрываем реплай-форму
     const replyClose = () =>{
-        document.querySelector('.replyText').classList.toggle('hidden')
+        document.querySelector('.replyText').classList.toggle('hidden') 
     }
+
+            //очищаем поле ввода сообщения от тегов регулярным выражением
+    const cleanArea= () =>{
+        document.querySelector('.messageForm-text').value = document.querySelector('.messageForm-text').value.replace(/<\/?[^>]+>/g,'')
+       }
     
     
     
@@ -128,13 +188,13 @@ const ChatFrame = () => {
         </div>
                     {/* панель маркдаунов для текста */}
         <div className='messageForm'>   
-            <div className="textMarkdown">
-                <button id='boldText'><img src="bold-icon.png" alt="" /></button>
-                <button id='italicText'><img src="italic-icon.png" alt="" /></button>
-                <button id='underlineText'><img src="underline-icon.png" alt="" /></button>
+            <div className="textMarkdown"> 
+                <button onClick={Btext} className='bText' id='boldText'><img src="bold-icon.png" alt="" /></button>
+                <button onClick={Itext} id='italicText'><img src="italic-icon.png" alt="" /></button>
+                <button onClick={Utext} id='underlineText'><img src="underline-icon.png" alt="" /></button>
                 <button id='numberedText'><img src="numbered-icon.png" alt="" /></button>
                 <button id='markedText'><img src="marked-icon.png" alt="" /></button>
-                <button id='resetTextStyle'><img src="reset-icon.png" alt="" /></button>
+                <button onClick={cleanArea}id='resetTextStyle'><img src="reset-icon.png" alt="" /></button>
             </div>
             
             <div className='replyText hidden'> 
@@ -145,7 +205,7 @@ const ChatFrame = () => {
             </div>
                 {/* инпут и поле ввода текста для сообщения*/}
             <input className='messageForm-name' type="text" placeholder='Имя' />
-            <textarea className='messageForm-text' 
+            <textarea id='text' className='messageForm-text' 
                 
                 type="text" cols="30"
                 rows="10" placeholder='Сообщение'>
