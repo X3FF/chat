@@ -173,12 +173,12 @@ const ChatFrame = () => {
   return (
             // рендерим форму
     <div className='mainForm'>
-        <button><img src="showHide-icon.png" alt="" /></button>
+        <button><img src="../img/showHide-icon.png" alt="" /></button>
         <ul>
-            <li><img src="leftAction-icon1.png" alt="" /></li>
-            <li><img src="leftAction-icon2.png" alt="" /></li>
-            <li><img src="leftAction-icon3.png" alt="" /></li>
-            <li><img src="leftAction-icon4.png" alt="" /></li>
+            <li><img src="../img/leftAction-icon1.png" alt="" /></li>
+            <li><img src="../img/leftAction-icon2.png" alt="" /></li>
+            <li><img src="../img/leftAction-icon3.png" alt="" /></li>
+            <li><img src="../img/leftAction-icon4.png" alt="" /></li>
         </ul>
         <h3>Робот-помощник</h3>
         <div className="chatForm">
@@ -189,12 +189,12 @@ const ChatFrame = () => {
                     {/* панель маркдаунов для текста */}
         <div className='messageForm'>   
             <div className="textMarkdown"> 
-                <button onClick={Btext} className='bText' id='boldText'><img src="bold-icon.png" alt="" /></button>
-                <button onClick={Itext} id='italicText'><img src="italic-icon.png" alt="" /></button>
-                <button onClick={Utext} id='underlineText'><img src="underline-icon.png" alt="" /></button>
-                <button id='numberedText'><img src="numbered-icon.png" alt="" /></button>
-                <button id='markedText'><img src="marked-icon.png" alt="" /></button>
-                <button onClick={cleanArea}id='resetTextStyle'><img src="reset-icon.png" alt="" /></button>
+                <button onClick={Btext} className='bText' id='boldText'><img src="../img/bold-icon.png" alt="" /></button>
+                <button onClick={Itext} id='italicText'><img src="../img/italic-icon.png" alt="" /></button>
+                <button onClick={Utext} id='underlineText'><img src="../img/underline-icon.png" alt="" /></button>
+                <button disabled id='numberedText'><img src="../img/numbered-icon.png" alt="" /></button>
+                <button disabled id='markedText'><img src="../img/marked-icon.png" alt="" /></button>
+                <button onClick={cleanArea}id='resetTextStyle'><img src="../img/reset-icon.png" alt="" /></button>
             </div>
             
             <div className='replyText hidden'> 
@@ -210,10 +210,10 @@ const ChatFrame = () => {
                 type="text" cols="30"
                 rows="10" placeholder='Сообщение'>
              </textarea>
-            <button onClick={sendMessage} className='sendMessage'><img src="sendButton.png" alt="" /></button>
+            <button onClick={sendMessage} className='sendMessage'><img src="../img/sendButton.png" alt="" /></button>
             
         </div>
-        <div  className='error hidden'><img src="error-icon.png" alt="" /><span>Проверьте все поля!</span></div>
+        <div  className='error hidden'><img src="../img/error-icon.png" alt="" /><span>Проверьте все поля!</span></div>
     </div>
   )
 }

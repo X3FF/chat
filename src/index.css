@@ -261,7 +261,7 @@ input::placeholder {
   top: 5px;
   border-radius: 50%;
   background: transparent; 
-  background-image: url(../public/close-icon.png);
+  background: url(../public/img/close-icon.png);
   background-size: contain;
   border: none;
   cursor: pointer;
@@ -383,7 +383,7 @@ input::placeholder {
   align-items: center;
   left: -40px;
   bottom: 0;
-  background: url(../public/myMessage-icon.png) no-repeat;
+  background: url(../public/img/myMessage-icon.png) no-repeat;
   background-size: contain;
 }
 
@@ -490,7 +490,7 @@ input::placeholder {
       align-items: center;
       left: -40px;
       bottom: 0;
-      background: url(../public/botMessage-icon.png) no-repeat;
+      background: url(../public/img/botMessage-icon.png) no-repeat;
       background-size: contain;
     }
     
@@ -533,7 +533,7 @@ input::placeholder {
       border-radius: 50%;
       background: transparent;
       border: none;
-      background-image: url(../public/reply-icon.png);
+      background-image: url(../public/img/reply-icon.png);
       background-repeat: no-repeat;
       transform: rotate(270deg);
       cursor: pointer;
